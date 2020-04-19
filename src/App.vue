@@ -1,28 +1,44 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<div class="app">
+  <titles>
+    <div class="mid" slot="mid">
+      <span class="left">得分</span>
+      <span class="right">{{scored}}</span>
+    </div>
+  </titles >
+<gameshow></gameshow>
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import gameshow from './components/gameshow'
+import titles from './components/titles'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+gameshow,
+titles
+  },
+  data(){
+    return{
+      scored:0
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+@import './assets/css/normalize.css';
+.app{
+   background: url('http://img5.imgtn.bdimg.com/it/u=2657375447,3832974274&fm=26&gp=0.jpg');
+ background-size: 100%;
+}
+.mid{
+  line-height: 48px;
+  color: aliceblue;
+  font-size: 30px;
+}
+.right{
+margin-left: 60%;
 }
 </style>
