@@ -10,12 +10,12 @@
     data() {
       return {
         imgs: [
-          "http://pic1.16pic.com/00/55/42/16pic_5542989_b.jpg",
-          "http://img3.imgtn.bdimg.com/it/u=3527232309,1373707624&fm=26&gp=0.jpg",
-          "http://img5.imgtn.bdimg.com/it/u=1405787429,1149883422&fm=26&gp=0.jpg",
-          "http://img4.imgtn.bdimg.com/it/u=3770123139,1980202967&fm=26&gp=0.jpg",
-          "http://img4.imgtn.bdimg.com/it/u=3122338747,1091557749&fm=26&gp=0.jpg",
-          "http://img1.imgtn.bdimg.com/it/u=1629216995,3191239224&fm=26&gp=0.jpg"
+          "http://a0.att.hudong.com/27/10/01300000324235124757108108752.jpg",
+          "http://a0.att.hudong.com/27/10/01300000324235124757108108752.jpg",
+          "http://a0.att.hudong.com/27/10/01300000324235124757108108752.jpg",
+          "http://a0.att.hudong.com/27/10/01300000324235124757108108752.jpg",
+          "http://a0.att.hudong.com/27/10/01300000324235124757108108752.jpg",
+          "http://a0.att.hudong.com/27/10/01300000324235124757108108752.jpg"
         ],
         index: 0,
         startx: 0,

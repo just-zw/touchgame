@@ -32,7 +32,7 @@
 <style scoped>
 @import "./assets/css/normalize.css";
 .app {
-  background: url("http://img5.imgtn.bdimg.com/it/u=2657375447,3832974274&fm=26&gp=0.jpg");
+  background: yellow;
   background-size: 100%;
 }
 .mid {
