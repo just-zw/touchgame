@@ -55,7 +55,7 @@
           
           this.tripleGame.swapItem(selectedItem, item,this)
         /*   swap(selectedItem) */
-        this.tripleGame.swap()
+       /*  this.tripleGame.swap(selectedItem.x,selectedItem.y,item.x,item.y) */
         }
       }
       // itemchange(flatx, flaty) {

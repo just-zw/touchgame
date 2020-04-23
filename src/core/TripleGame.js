@@ -116,12 +116,7 @@ export default class TripleGame {
 
     return { status: false }
   }
-
-  // 交换方块
-  swapItem(item1, item2,that) {
-    // TODO
-    /* console.log(this.itemMatrix); */
- 
+  swapimg(item1, item2,that){
     that.$set(this.itemMatrix[item1.y],[item1.x],item2)
     that.$set(this.itemMatrix[item2.y],[item2.x],item1)
     let midx=item1.x;
@@ -130,9 +125,21 @@ export default class TripleGame {
     item1.y=item2.y;
     item2.x=midx;
     item2.y=midy  
+  }
+  // 交换方块
+  swapItem(item1, item2,that) {
+    // TODO
+    /* console.log(this.itemMatrix); */
+ 
+ 
  /*    itemMatrix[item1.y][item1.x]=item2
     this.itemMatrix[item2.y][item2.x]=item1 */
-    console.log(this.itemMatrix);
+   this.swapimg(item1, item2,that)
+   if(this.check().status){
+     this.swap()
+   }else{
+    this.swapimg(item2,item1,that)
+   }
     
   }
 
@@ -148,6 +155,22 @@ export default class TripleGame {
 
     // 4.10、不可消除 -> 换回方块
     // end
+   let {status,result}=this.check()
+ /*   console.log(status);
+   console.log(result); */
+   
+   
+  if(status){
+  this.score=result.length;
+  result.forEach(item=>{ 
+  delete this.itemMatrix[item.y][item.x]
+  this.itemMatrix[item.y][item.x]=this.createItem(item.x, item.y)
+
+});
+
+
+
+  }
 
 
 
