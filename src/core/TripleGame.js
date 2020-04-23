@@ -45,10 +45,12 @@ export default class TripleGame {
     for (let y = 0; y < this.y; y++) {
       const row = []
       for (let x = 0; x < this.x; x++) {
+        //row存放的是每一个小块的具体信息
         row.push(
           this.createItem(x, y)
         )
       }
+      //存的是每一行的具体信息
       matrix.push(row)
     }
     this.itemMatrix = matrix
@@ -64,6 +66,7 @@ export default class TripleGame {
     const checkAlgo = row => {
       let currentType = null
       let sameList = []
+      //cell就是每一个小方块
       let result = row.some((cell, index) => {
         if (index === 0) {
           currentType = cell.type
@@ -115,9 +118,22 @@ export default class TripleGame {
   }
 
   // 交换方块
-  swapItem(item1, item2) {
+  swapItem(item1, item2,that) {
     // TODO
-    console.log('交换两者！', item1, item2)
+    /* console.log(this.itemMatrix); */
+ 
+    that.$set(this.itemMatrix[item1.y],[item1.x],item2)
+    that.$set(this.itemMatrix[item2.y],[item2.x],item1)
+    let midx=item1.x;
+    let midy=item1.y;
+    item1.x=item2.x;
+    item1.y=item2.y;
+    item2.x=midx;
+    item2.y=midy  
+ /*    itemMatrix[item1.y][item1.x]=item2
+    this.itemMatrix[item2.y][item2.x]=item1 */
+    console.log(this.itemMatrix);
+    
   }
 
   swap(x1, y1, x2, y2) {
@@ -132,6 +148,9 @@ export default class TripleGame {
 
     // 4.10、不可消除 -> 换回方块
     // end
+
+
+
   }
 
   

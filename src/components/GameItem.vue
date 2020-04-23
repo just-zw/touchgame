@@ -1,6 +1,6 @@
 <template>
   <div class="showitem" @click="handleSelected">
-    <img :src="imgSrc" alt />
+    <div :style="{background:bgcolor}"></div>
   </div>
 </template>
 
@@ -9,13 +9,12 @@
     name: "GameItem",
     data() {
       return {
-        imgs: [
-          "http://a0.att.hudong.com/27/10/01300000324235124757108108752.jpg",
-          "http://a0.att.hudong.com/27/10/01300000324235124757108108752.jpg",
-          "http://a0.att.hudong.com/27/10/01300000324235124757108108752.jpg",
-          "http://a0.att.hudong.com/27/10/01300000324235124757108108752.jpg",
-          "http://a0.att.hudong.com/27/10/01300000324235124757108108752.jpg",
-          "http://a0.att.hudong.com/27/10/01300000324235124757108108752.jpg"
+        colors: [
+          'yellow',
+          'red',
+          'blue',
+          'black',
+          'cyan'
         ],
         index: 0,
         startx: 0,
@@ -38,8 +37,8 @@
       },
     },
     computed: {
-      imgSrc() {
-        return this.imgs[this.config.type];
+      bgcolor() {
+        return this.colors[this.config.type];
       }
     },
     methods: {
@@ -167,7 +166,7 @@
 </script>
 
 <style scoped>
-.showitem, .showitem img {
+.showitem, .showitem div {
   width: 50px;
   height: 50px;
   border-radius: 10px;

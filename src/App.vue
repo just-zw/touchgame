@@ -32,7 +32,7 @@
 <style scoped>
 @import "./assets/css/normalize.css";
 .app {
-  background: yellow;
+  background: gray;
   background-size: 100%;
 }
 .mid {

@@ -21,7 +21,7 @@
     },
     data() {
       return {
-        tripleGame: new TripleGame(5, 5, 3).init(),
+        tripleGame: new TripleGame(5, 5, 5).init(),
         selectedItem: null,
       };
     },
@@ -34,6 +34,8 @@
     methods: {
       handleItemSelected(item) {
         if (!this.selectedItem) {
+          console.log(1);
+          
           this.selectedItem = item
           this.$set(item, 'selected', true)
           return
@@ -48,7 +50,12 @@
           const selectedItem = this.selectedItem
           this.selectedItem = null
           this.$set(item, 'selected', false)
-          this.tripleGame.swapItem(selectedItem, item)
+      
+          console.log(2);
+          
+          this.tripleGame.swapItem(selectedItem, item,this)
+        /*   swap(selectedItem) */
+        this.tripleGame.swap()
         }
       }
       // itemchange(flatx, flaty) {
