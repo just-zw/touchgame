@@ -54,8 +54,8 @@ export default class TripleGame {
       matrix.push(row)
     }
     this.itemMatrix = matrix
-
-    console.log(this.check())
+    this.swap() 
+   
     
     this.ready = true
     return this
@@ -143,7 +143,7 @@ export default class TripleGame {
     
   }
 
-  swap(x1, y1, x2, y2) {
+  swap() {
     // TODO
     // 0 校验方块是否相邻
     // 1、清除选中状态
@@ -159,9 +159,13 @@ export default class TripleGame {
  /*   console.log(status);
    console.log(result); */
    
+  
    
   if(status){
-  this.score=result.length;
+  /*   console.log(result);
+    console.log(result.length); */
+    
+  this.score=result.length+this.score;
   result.forEach(item=>{ 
   delete this.itemMatrix[item.y][item.x]
   this.itemMatrix[item.y][item.x]=this.createItem(item.x, item.y)
@@ -170,9 +174,10 @@ export default class TripleGame {
 
 
 
+
   }
 
-
+  console.log(this.score);
 
   }
 

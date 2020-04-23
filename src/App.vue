@@ -7,7 +7,7 @@
       </div>
     </titles>
     <!-- <gameshow></gameshow> -->
-    <GameContainer />
+    <GameContainer @showc='show' />
   </div>
 </template>
 
@@ -25,6 +25,12 @@
       return {
         scored: 0
       };
+    },
+    methods:{
+      show(def){    
+    this.scored=def
+    
+      }
     }
   };
 </script>

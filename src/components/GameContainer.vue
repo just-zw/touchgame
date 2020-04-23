@@ -26,15 +26,15 @@
       };
     },
     
-    computed: {
+  /*   computed: {
       totalScore() {
         return this.tripleGame.getScore()
       }
-    },
+    }, */
     methods: {
       handleItemSelected(item) {
         if (!this.selectedItem) {
-          console.log(1);
+        
           
           this.selectedItem = item
           this.$set(item, 'selected', true)
@@ -50,10 +50,9 @@
           const selectedItem = this.selectedItem
           this.selectedItem = null
           this.$set(item, 'selected', false)
-      
-          console.log(2);
-          
           this.tripleGame.swapItem(selectedItem, item,this)
+          /* let score=this.tripleGame.getScore() */
+          this.$emit('showc',this.tripleGame.getScore())
         /*   swap(selectedItem) */
        /*  this.tripleGame.swap(selectedItem.x,selectedItem.y,item.x,item.y) */
         }
