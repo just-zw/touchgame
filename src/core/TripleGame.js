@@ -116,6 +116,13 @@ export default class TripleGame {
 
     return { status: false }
   }
+  /* removeimgstyle(item1,item2){
+item1.setAttribute('class','touchstyle'),
+item2.setAttribute('class','touchstyle')
+  }
+  addimgstyle(){
+
+  } */
   swapimg(item1, item2,that){
     that.$set(this.itemMatrix[item1.y],[item1.x],item2)
     that.$set(this.itemMatrix[item2.y],[item2.x],item1)
@@ -138,7 +145,10 @@ export default class TripleGame {
    if(this.check().status){
      this.swap()
    }else{
-    this.swapimg(item2,item1,that)
+    this.swapimg(item2,item1,that);
+    document.querySelectorAll('.touchstyle').forEach(item=>{
+      item.setAttribute('class','')
+    })
    }
     
   }
@@ -158,24 +168,27 @@ export default class TripleGame {
    let {status,result}=this.check()
  /*   console.log(status);
    console.log(result); */
-   
-  
-   
+      
   if(status){
-  /*   console.log(result);
-    console.log(result.length); */
+    /*   console.log(result);
+      console.log(result.length); */
+      document.querySelectorAll('.touchstyle').forEach(item=>{
+        item.setAttribute('class','')
+      })
+      
+    this.score=result.length+this.score;
+    result.forEach(item=>{ 
+    delete this.itemMatrix[item.y][item.x]
+    this.itemMatrix[item.y][item.x]=this.createItem(item.x, item.y)
+  this.swap()
+  });
+  
+  
+  
+  console.log(this.check());
+  
     
-  this.score=result.length+this.score;
-  result.forEach(item=>{ 
-  delete this.itemMatrix[item.y][item.x]
-  this.itemMatrix[item.y][item.x]=this.createItem(item.x, item.y)
-
-});
-
-
-
-
-  }
+}
 
   console.log(this.score);
 

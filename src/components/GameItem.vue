@@ -1,5 +1,5 @@
 <template>
-  <div class="showitem" @click="handleSelected">
+  <div class="showitem" @click="handleSelected($event)">
     <div :style="{background:bgcolor}"></div>
   </div>
 </template>
@@ -42,8 +42,8 @@
       }
     },
     methods: {
-      handleSelected() {
-        this.$emit('select', this.config)
+      handleSelected(event) {
+        this.$emit('select',this.config,event)
       }
       // 不要那么多事件，交换逻辑交给父组件
     //   start(e) {
