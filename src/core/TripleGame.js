@@ -9,20 +9,30 @@ export default class TripleGame {
     this.currentSelected = null
   }
 
+  // --------- 统一接口 ----------
+  getMatrix() {
+    return this.itemMatrix
+  }
+
   getScore() {
     return this.score
   }
 
-  getItem(x, y) {
-    console.log(`x: ${x}, y: ${y}, selected: ${this.itemMatrix[y][x].selected}`)
-    return this.itemMatrix[y][x]
+  setRender(render) {
+    this.renderCb = render
   }
 
   render() {
     this.renderCb(this)
   }
+  
 
   // --------- 工作逻辑 ----------
+
+  getItem(x, y) {
+    // console.log(`x: ${x}, y: ${y}, selected: ${this.itemMatrix[y][x].selected}`)
+    return this.itemMatrix[y][x]
+  }
 
   // 是否相邻
   static isNeighbor(item1, item2) {
@@ -106,7 +116,6 @@ export default class TripleGame {
 
           // 加进去后马上校验是否超阈值
           if (sameList.length >= 3) {
-            console.log(sameList)
             return true
           }
         } else {
@@ -151,7 +160,6 @@ export default class TripleGame {
   // 根据两个item做交换
   swapItem(item1, item2) {
     // this.swap(item1.x, item1.y, item2.x, item2.y)
-    console.log('swap!', JSON.stringify(item1), JSON.stringify(item2))
     const copyedItem1 = { ...item1, x: item2.x, y: item2.y }
     const copyedItem2 = { ...item2, x: item1.x, y: item1.y }
 
